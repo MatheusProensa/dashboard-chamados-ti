@@ -1,73 +1,86 @@
-# React + TypeScript + Vite
+# 🖥️ Painel TI — Dashboard de Chamados
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dashboard moderno de suporte técnico desenvolvido com React + TypeScript + Vite, focado em gerenciamento de chamados e experiência visual premium.
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-0F172A?style=for-the-badge&logo=typescript&logoColor=3178C6)
+![Vite](https://img.shields.io/badge/Vite-111827?style=for-the-badge&logo=vite&logoColor=646CFF)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 📊 Dashboard de métricas
+- 🛠️ Cadastro de chamados
+- 🔄 Alteração dinâmica de status
+- 🔔 Sistema de notificações
+- 📈 Gráfico mensal interativo
+- 🎨 Interface moderna estilo SaaS/Cyber UI
+- ⚡ Animações e micro interações
+- 🌙 Visual responsivo e dark mode
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📷 Preview
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+<img width="100%" src="./preview.png" />
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🚀 Tecnologias utilizadas
+
+- React
+- TypeScript
+- Vite
+- CSS3
+- React Icons
+
+---
+
+## 📚 Objetivo do projeto
+
+Este projeto foi desenvolvido com foco em prática de:
+
+- Componentização no React
+- Manipulação de estados com `useState`
+- Interfaces dinâmicas
+- Estruturação de dashboards
+- Estilização avançada com CSS
+- Experiência do usuário (UI/UX)
+
+---
+
+## ⚙️ Como executar o projeto
+
+Clone o repositório:
+
+```bash
+git clone LINK_DO_REPOSITORIO
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Entre na pasta:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd nome-do-projeto
 ```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Execute o projeto:
+
+```bash
+npm run dev
+```
+
+---
+
+## 👨‍💻 Autor
+
+Feito por **Matheus Proensa**
+
+- GitHub: https://github.com/MatheusProensa
+- LinkedIn: https://www.linkedin.com/in/matheus-proensa-48082617b/

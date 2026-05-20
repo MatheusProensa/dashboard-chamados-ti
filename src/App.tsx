@@ -1,13 +1,34 @@
+import { useState } from "react";
+import "./App.css";
+import simbolo from "./assets/simbolo.webp";
+
 import {
   FaDesktop,
   FaExclamationTriangle,
   FaCheckCircle,
   FaClock,
+  FaChartBar,
+  FaUsers,
+  FaClipboardList,
+  FaFileAlt,
+  FaSearch,
+  FaBell,
+  FaPlus,
+  FaTimes,
 } from "react-icons/fa";
 
-import "./App.css";
+type Status = "Pendente" | "Em andamento" | "Resolvido";
+type Prioridade = "Baixa" | "Média" | "Alta";
 
-const chamados = [
+type Chamado = {
+  id: number;
+  usuario: string;
+  problema: string;
+  prioridade: Prioridade;
+  status: Status;
+};
+
+const chamadosIniciais: Chamado[] = [
   {
     id: 1,
     usuario: "Carlos Silva",
@@ -15,7 +36,6 @@ const chamados = [
     prioridade: "Alta",
     status: "Em andamento",
   },
-
   {
     id: 2,
     usuario: "Fernanda Lima",
@@ -23,7 +43,6 @@ const chamados = [
     prioridade: "Média",
     status: "Pendente",
   },
-
   {
     id: 3,
     usuario: "João Pedro",
@@ -33,37 +52,199 @@ const chamados = [
   },
 ];
 
+const chamadosMensais = [
+  { mes: "Jan", total: 42 },
+  { mes: "Fev", total: 58 },
+  { mes: "Mar", total: 76 },
+  { mes: "Abr", total: 64 },
+  { mes: "Mai", total: 92 },
+  { mes: "Jun", total: 80 },
+];
+
+const notificacoes = [
+  {
+    titulo: "Chamado urgente aberto",
+    texto: "Carlos Silva abriu um chamado de alta prioridade.",
+    tempo: "Agora",
+  },
+  {
+    titulo: "Chamado resolvido",
+    texto: "Impressora marcada como resolvida.",
+    tempo: "12 min",
+  },
+  {
+    titulo: "Novo chamado pendente",
+    texto: "Fernanda Lima aguarda atendimento técnico.",
+    tempo: "28 min",
+  },
+];
+
 export default function App() {
+  const [chamados, setChamados] = useState<Chamado[]>(chamadosIniciais);
+  const [modalAberto, setModalAberto] = useState(false);
+  const [fechandoModal, setFechandoModal] = useState(false);
+
+  const [usuario, setUsuario] = useState("");
+  const [problema, setProblema] = useState("");
+  const [prioridade, setPrioridade] = useState<Prioridade>("Média");
+
+  const [notificacoesAbertas, setNotificacoesAbertas] = useState(false);
+  const [notificacoesLidas, setNotificacoesLidas] = useState(false);
+
+  function abrirModal() {
+    setModalAberto(true);
+  }
+
+  function fecharModal() {
+    setFechandoModal(true);
+
+    setTimeout(() => {
+      setModalAberto(false);
+      setFechandoModal(false);
+      setUsuario("");
+      setProblema("");
+      setPrioridade("Média");
+    }, 250);
+  }
+
+  function cadastrarChamado(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (!usuario.trim() || !problema.trim()) {
+      alert("Preencha usuário e problema.");
+      return;
+    }
+
+    const novoChamado: Chamado = {
+      id: chamados.length + 1,
+      usuario,
+      problema,
+      prioridade,
+      status: "Pendente",
+    };
+
+    setChamados([novoChamado, ...chamados]);
+    fecharModal();
+  }
+
+  function alterarStatus(id: number, novoStatus: Status) {
+    const chamadosAtualizados = chamados.map((chamado) => {
+      if (chamado.id === id) {
+        return {
+          ...chamado,
+          status: novoStatus,
+        };
+      }
+
+      return chamado;
+    });
+
+    setChamados(chamadosAtualizados);
+  }
+
   return (
     <div className="dashboard">
-
-      {/* SIDEBAR */}
       <aside className="sidebar">
-        <h2>Painel TI</h2>
+        <div className="sidebar-logo">
+  <img src={simbolo} alt="Painel TI" />
+  <h2>Painel TI</h2>
+</div>
 
-        <nav>
-          <a href="#">Dashboard</a>
-          <a href="#">Chamados</a>
-          <a href="#">Usuários</a>
-          <a href="#">Relatórios</a>
+        <nav className="sidebar-nav">
+          <a href="#" className="active">
+            <FaChartBar />
+            Painel
+          </a>
+
+          <a href="#">
+            <FaClipboardList />
+            Chamados
+          </a>
+
+          <a href="#">
+            <FaUsers />
+            Usuários
+          </a>
+
+          <a href="#">
+            <FaFileAlt />
+            Relatórios
+          </a>
         </nav>
       </aside>
 
-      {/* CONTEÚDO */}
       <main className="main-content">
-
         <header className="topbar">
-          <h1>Dashboard de Chamados</h1>
+          <div>
+            <h1>Dashboard de Chamados</h1>
+            <p>Visão geral dos atendimentos de suporte técnico</p>
+          </div>
+
+          <div className="topbar-actions">
+            <div className="search-box">
+              <FaSearch />
+              <input type="text" placeholder="Buscar chamado..." />
+            </div>
+
+            <button className="new-ticket" onClick={abrirModal}>
+              <FaPlus />
+              Novo chamado
+            </button>
+
+            <div className="notification-wrapper">
+              <button
+                className={`notification ${
+                  notificacoesAbertas ? "active-notification" : ""
+                }`}
+                onClick={() => setNotificacoesAbertas(!notificacoesAbertas)}
+              >
+                <FaBell />
+                {!notificacoesLidas && <span className="notification-dot"></span>}
+              </button>
+
+              {notificacoesAbertas && (
+                <div className="notification-dropdown">
+                  <div className="notification-header">
+                    <div>
+                      <h3>Notificações</h3>
+                      <p>Atualizações recentes do sistema</p>
+                    </div>
+                  </div>
+
+                  <div className="notification-list">
+                    {notificacoes.map((item, index) => (
+                      <div className="notification-item" key={index}>
+                        <div className="notification-icon"></div>
+
+                        <div>
+                          <strong>{item.titulo}</strong>
+                          <p>{item.texto}</p>
+                          <span>{item.tempo}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <button
+                    className="read-button"
+                    onClick={() => setNotificacoesLidas(true)}
+                  >
+                    Marcar como lidas
+                  </button>
+                </div>
+              )}
+            </div>
+
+            <div className="user-avatar">M</div>
+          </div>
         </header>
 
-        {/* CARDS */}
         <section className="cards">
-
           <div className="card">
             <FaDesktop className="card-icon" />
             <div>
               <span>Total</span>
-              <h3>128</h3>
+              <h3>{chamados.length}</h3>
             </div>
           </div>
 
@@ -71,7 +252,9 @@ export default function App() {
             <FaClock className="card-icon" />
             <div>
               <span>Em andamento</span>
-              <h3>32</h3>
+              <h3>
+                {chamados.filter((item) => item.status === "Em andamento").length}
+              </h3>
             </div>
           </div>
 
@@ -79,7 +262,7 @@ export default function App() {
             <FaExclamationTriangle className="card-icon" />
             <div>
               <span>Urgentes</span>
-              <h3>8</h3>
+              <h3>{chamados.filter((item) => item.prioridade === "Alta").length}</h3>
             </div>
           </div>
 
@@ -87,22 +270,65 @@ export default function App() {
             <FaCheckCircle className="card-icon" />
             <div>
               <span>Resolvidos</span>
-              <h3>88</h3>
+              <h3>{chamados.filter((item) => item.status === "Resolvido").length}</h3>
+            </div>
+          </div>
+        </section>
+
+        <section className="analytics">
+          <div className="chart-card">
+            <div className="section-header">
+              <div>
+                <h2>Chamados mensais</h2>
+                <p>Volume de chamados registrados nos últimos meses</p>
+              </div>
+
+              <span className="tag">2026</span>
+            </div>
+
+            <div className="bar-chart">
+              {chamadosMensais.map((item) => (
+                <div className="bar-item" key={item.mes}>
+                  <span className="bar-value">{item.total}</span>
+                  <div className="bar-track">
+                    <div className="bar-fill" style={{ height: `${item.total}%` }}></div>
+                  </div>
+                  <span className="bar-label">{item.mes}</span>
+                </div>
+              ))}
             </div>
           </div>
 
+          <div className="summary-card">
+            <h2>Resumo rápido</h2>
+
+            <div className="summary-list">
+              <div>
+                <span>Taxa de resolução</span>
+                <strong>68%</strong>
+              </div>
+
+              <div>
+                <span>Tempo médio</span>
+                <strong>2h 40min</strong>
+              </div>
+
+              <div>
+                <span>Prioridade alta</span>
+                <strong>
+                  {chamados.filter((item) => item.prioridade === "Alta").length} chamados
+                </strong>
+              </div>
+            </div>
+          </div>
         </section>
 
-        {/* TABELA */}
-
         <section className="table-section">
-
           <div className="table-header">
             <h2>Últimos chamados</h2>
           </div>
 
           <table>
-
             <thead>
               <tr>
                 <th>ID</th>
@@ -114,24 +340,116 @@ export default function App() {
             </thead>
 
             <tbody>
-
               {chamados.map((chamado) => (
                 <tr key={chamado.id}>
                   <td>#{chamado.id}</td>
                   <td>{chamado.usuario}</td>
                   <td>{chamado.problema}</td>
-                  <td>{chamado.prioridade}</td>
-                  <td>{chamado.status}</td>
+                  <td>
+                    <span className={`priority ${chamado.prioridade.toLowerCase()}`}>
+                      {chamado.prioridade}
+                    </span>
+                  </td>
+                  <td>
+                  <div className="status-dropdown">
+  <button
+    className={`status-button ${chamado.status
+      .toLowerCase()
+      .replace(" ", "-")}`}
+  >
+    {chamado.status}
+  </button>
+
+  <div className="status-menu">
+    <button
+      className="menu-item pending"
+      onClick={() => alterarStatus(chamado.id, "Pendente")}
+    >
+      Pendente
+    </button>
+
+    <button
+      className="menu-item progress"
+      onClick={() => alterarStatus(chamado.id, "Em andamento")}
+    >
+      Em andamento
+    </button>
+
+    <button
+      className="menu-item resolved"
+      onClick={() => alterarStatus(chamado.id, "Resolvido")}
+    >
+      Resolvido
+    </button>
+  </div>
+</div>
+                  </td>
                 </tr>
               ))}
-
             </tbody>
-
           </table>
-
         </section>
-
       </main>
+
+      {modalAberto && (
+        <div className={`modal-overlay ${fechandoModal ? "closing" : ""}`}>
+          <div className={`modal ${fechandoModal ? "closing" : ""}`}>
+            <div className="modal-header">
+              <div>
+                <h2>Novo chamado</h2>
+                <p>Cadastre uma nova solicitação de suporte técnico</p>
+              </div>
+
+              <button className="close-modal" onClick={fecharModal}>
+                <FaTimes />
+              </button>
+            </div>
+
+            <form onSubmit={cadastrarChamado} className="modal-form">
+              <div className="form-group">
+                <label>Usuário</label>
+                <input
+                  type="text"
+                  placeholder="Ex: Matheus Proensa"
+                  value={usuario}
+                  onChange={(event) => setUsuario(event.target.value)}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Problema</label>
+                <textarea
+                  placeholder="Descreva o problema..."
+                  value={problema}
+                  onChange={(event) => setProblema(event.target.value)}
+                ></textarea>
+              </div>
+
+              <div className="form-group">
+                <label>Prioridade</label>
+                <select
+                  value={prioridade}
+                  onChange={(event) => setPrioridade(event.target.value as Prioridade)}
+                >
+                  <option>Baixa</option>
+                  <option>Média</option>
+                  <option>Alta</option>
+                </select>
+              </div>
+
+              <div className="modal-actions">
+                <button type="button" className="cancel-button" onClick={fecharModal}>
+                  Cancelar
+                </button>
+
+                <button type="submit" className="save-button">
+                  Cadastrar chamado
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

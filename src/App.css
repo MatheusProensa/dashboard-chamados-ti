@@ -2468,3 +2468,7 @@ body::after {
   margin-top: 64px;
 }
 
+.theme-tooltip {
+  display: none !important;
+}
+}

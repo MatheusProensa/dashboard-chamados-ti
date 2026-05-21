@@ -147,7 +147,7 @@ body::after {
 }
 
 .topbar p {
-  margin-top: 10px;
+  margin-top: 18px;
   color: #8fa99a;
   font-size: 17px;
 }
@@ -2221,12 +2221,12 @@ body::after {
   }
 
   .topbar {
-  gap: 18px;
+  gap: 24px;
 
   align-items: center;
 
-  padding-top: 34px;
-  padding-bottom: 14px;
+  padding-top: 42px;
+  padding-bottom: 24px;
 }
 
   .topbar h1 {
@@ -2462,6 +2462,5 @@ body::after {
   }
 
   .cards {
-    margin-top: 42px;
-  }
+  margin-top: 52px;
 }

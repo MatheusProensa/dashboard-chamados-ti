@@ -646,17 +646,24 @@ th:last-child {
   top: 100%;
   left: 0;
   width: 100%;
-  background: #020805;
+
+  background: rgba(7, 19, 13, 0.96);
+
+  backdrop-filter: blur(18px);
+
   border: 1px solid rgba(96, 165, 250, 0.18);
   border-radius: 18px;
   padding: 12px 8px;
+
   display: none;
   flex-direction: column;
   gap: 8px;
+
   z-index: 999999;
+
   box-shadow:
-    0 20px 50px rgba(0,0,0,0.65),
-    0 0 22px rgba(59, 130, 246, 0.12);
+    0 20px 50px rgba(0,0,0,0.45),
+    0 0 22px rgba(59, 130, 246, 0.10);
 }
 
 .status-dropdown:hover .status-menu,
@@ -2228,8 +2235,23 @@ body::after {
   }
 
   .topbar-actions {
-    gap: 12px;
-  }
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 12px;
+}
+
+.notification,
+.theme-toggle,
+.user-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
   .search-box {
     width: 100%;

@@ -1176,3 +1176,113 @@ body.light-theme .bar-item:hover .bar-label {
   color: #0f172a;
   text-shadow: none;
 }
+
+/* LIGHT MODE - CONTRASTE PREMIUM FINAL */
+
+body.light-theme {
+  background: #e6f1eb;
+}
+
+/* CARDS E ÁREAS */
+body.light-theme .card,
+body.light-theme .chart-card,
+body.light-theme .summary-card,
+body.light-theme .table-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f3faf6 100%);
+  border: 1px solid rgba(22, 163, 74, 0.28);
+
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.10),
+    0 0 0 1px rgba(34, 197, 94, 0.08);
+}
+
+/* CABEÇALHO DA TABELA */
+body.light-theme thead {
+  background: #dcebe4;
+}
+
+body.light-theme th {
+  color: #26384d;
+  font-weight: 600;
+}
+
+/* LINHAS DA TABELA */
+body.light-theme tbody tr:nth-child(even) {
+  background: rgba(34, 197, 94, 0.06);
+}
+
+body.light-theme tbody tr:hover {
+  background: rgba(34, 197, 94, 0.12);
+}
+
+body.light-theme td {
+  color: #0f172a;
+  border-top: 1px solid rgba(34, 197, 94, 0.16);
+}
+
+/* RESUMO RÁPIDO */
+body.light-theme .summary-list div {
+  background: #edf7f1;
+  border: 1px solid rgba(22, 163, 74, 0.22);
+}
+
+/* STATUS MAIS LEGÍVEL */
+body.light-theme .status-button.em-andamento {
+  background: #bfdbfe;
+  color: #1d4ed8;
+  border: 1px solid rgba(29, 78, 216, 0.35);
+}
+
+body.light-theme .status-button.pendente {
+  background: #fed7aa;
+  color: #c2410c;
+  border: 1px solid rgba(194, 65, 12, 0.35);
+}
+
+body.light-theme .status-button.resolvido {
+  background: #bbf7d0;
+  color: #15803d;
+  border: 1px solid rgba(21, 128, 61, 0.35);
+}
+
+/* MENU DO STATUS */
+body.light-theme .status-menu {
+  background: #f8fffb;
+  border: 1px solid rgba(22, 163, 74, 0.28);
+
+  box-shadow:
+    0 24px 60px rgba(15, 23, 42, 0.18),
+    0 0 0 1px rgba(34, 197, 94, 0.08);
+}
+
+body.light-theme .menu-item {
+  font-weight: 600;
+}
+
+body.light-theme .menu-item.pending {
+  color: #c2410c;
+}
+
+body.light-theme .menu-item.progress {
+  color: #1d4ed8;
+}
+
+body.light-theme .menu-item.resolved {
+  color: #15803d;
+}
+
+body.light-theme .menu-item:hover {
+  background: rgba(34, 197, 94, 0.10);
+}
+
+/* GRÁFICO MAIS VISÍVEL */
+body.light-theme .bar-track {
+  background: #dbe7e1;
+  border: 1px solid rgba(22, 163, 74, 0.16);
+}
+
+body.light-theme .bar-value,
+body.light-theme .bar-label {
+  color: #334155;
+  font-weight: 700;
+}

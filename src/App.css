@@ -2221,18 +2221,23 @@ body::after {
   }
 
   .topbar {
-    gap: 26px;
-  }
+  gap: 26px;
+  align-items: center;
+}
 
   .topbar h1 {
-    font-size: 34px;
-    line-height: 1.08;
-  }
+  font-size: 34px;
+  line-height: 1.08;
+
+  text-align: center;
+}
 
   .topbar p {
-    font-size: 15px;
-    line-height: 1.45;
-  }
+  font-size: 15px;
+  line-height: 1.45;
+
+  text-align: center;
+}
 
   .topbar-actions {
   width: 100%;

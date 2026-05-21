@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import simbolo from "./assets/simbolo.webp";
 
@@ -15,6 +15,8 @@ import {
   FaBell,
   FaPlus,
   FaTimes,
+  FaSun,
+  FaMoon,
 } from "react-icons/fa";
 
 type Status = "Pendente" | "Em andamento" | "Resolvido";
@@ -80,6 +82,11 @@ const notificacoes = [
 ];
 
 export default function App() {
+  const [temaClaro, setTemaClaro] = useState(false);
+
+useEffect(() => {
+  document.body.classList.toggle("light-theme", temaClaro);
+}, [temaClaro]);
   const [chamados, setChamados] = useState<Chamado[]>(chamadosIniciais);
   const [modalAberto, setModalAberto] = useState(false);
   const [fechandoModal, setFechandoModal] = useState(false);
@@ -190,6 +197,12 @@ export default function App() {
               <FaPlus />
               Novo chamado
             </button>
+            <button
+             className="theme-toggle"
+             onClick={() => setTemaClaro(!temaClaro)}
+>
+            {temaClaro ? <FaMoon /> : <FaSun />}
+             </button>
 
             <div className="notification-wrapper">
               <button

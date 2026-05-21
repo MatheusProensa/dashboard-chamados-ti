@@ -193,16 +193,22 @@ useEffect(() => {
               <input type="text" placeholder="Buscar chamado..." />
             </div>
 
+          
+
             <button className="new-ticket" onClick={abrirModal}>
               <FaPlus />
               Novo chamado
             </button>
-            <button
-             className="theme-toggle"
-             onClick={() => setTemaClaro(!temaClaro)}
+          <button
+  className="theme-toggle"
+  onClick={() => setTemaClaro(!temaClaro)}
 >
-            {temaClaro ? <FaMoon /> : <FaSun />}
-             </button>
+  {temaClaro ? <FaMoon /> : <FaSun />}
+
+  <span className="theme-tooltip">
+    ✨ Experimente o modo claro
+  </span>
+</button>
 
             <div className="notification-wrapper">
               <button

@@ -2239,7 +2239,7 @@ body::after {
 }
 
   .topbar p {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.45;
 
   text-align: center;
@@ -2247,6 +2247,8 @@ body::after {
   max-width: 320px;
 
   margin-top: 4px;
+
+  white-space: nowrap;
 }
 
   .topbar-actions {

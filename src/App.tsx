@@ -109,6 +109,12 @@ function useAnimatedNumber(value: number, duration = 800) {
   return animatedValue;
 }
 
+function AnimatedNumber({ value }: { value: number }) {
+  const animatedValue = useAnimatedNumber(value, 1000);
+
+  return <>{animatedValue}</>;
+}
+
 export default function App() {
   const [temaClaro, setTemaClaro] = useState(false);
 
@@ -136,10 +142,10 @@ const chamadosResolvidos = chamados.filter(
   (item) => item.status === "Resolvido"
 ).length;
 
-const totalAnimado = useAnimatedNumber(totalChamados);
-const andamentoAnimado = useAnimatedNumber(chamadosEmAndamento);
-const urgentesAnimado = useAnimatedNumber(chamadosUrgentes);
-const resolvidosAnimado = useAnimatedNumber(chamadosResolvidos);
+const totalAnimado = useAnimatedNumber(totalChamados, 1000);
+const andamentoAnimado = useAnimatedNumber(chamadosEmAndamento, 1000);
+const urgentesAnimado = useAnimatedNumber(chamadosUrgentes, 1000);
+const resolvidosAnimado = useAnimatedNumber(chamadosResolvidos, 1000);
 
   function abrirModal() {
     setModalAberto(true);
@@ -349,7 +355,9 @@ const resolvidosAnimado = useAnimatedNumber(chamadosResolvidos);
             <div className="bar-chart">
               {chamadosMensais.map((item) => (
                 <div className="bar-item" key={item.mes}>
-                  <span className="bar-value">{item.total}</span>
+                  <span className="bar-value">
+  <AnimatedNumber value={item.total} />
+</span>
                   <div className="bar-track">
                     <div className="bar-fill" style={{ height: `${item.total}%` }}></div>
                   </div>

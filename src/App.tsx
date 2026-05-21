@@ -132,6 +132,7 @@ useEffect(() => {
 
   const [notificacoesAbertas, setNotificacoesAbertas] = useState(false);
   const [notificacoesLidas, setNotificacoesLidas] = useState(false);
+  const [perfilAberto, setPerfilAberto] = useState(false);
   const totalChamados = chamados.length;
 const chamadosEmAndamento = chamados.filter(
   (item) => item.status === "Em andamento"
@@ -312,7 +313,42 @@ const resolvidosAnimado = useAnimatedNumber(chamadosResolvidos, 1000);
               )}
             </div>
 
-            <div className="user-avatar">M</div>
+            <div className="profile-wrapper">
+  <button
+    className="user-avatar"
+    onClick={() => setPerfilAberto(!perfilAberto)}
+  >
+    M
+  </button>
+
+  {perfilAberto && (
+    <div className="profile-dropdown">
+      <div className="profile-header">
+        <div className="profile-avatar-large">M</div>
+
+        <div>
+          <h3>Matheus Proensa</h3>
+          <p>Administrador do sistema</p>
+        </div>
+      </div>
+
+      <div className="profile-status">
+        <span></span>
+        Online agora
+      </div>
+
+      <div className="profile-options">
+        <button>Meu perfil</button>
+        <button>Configurações</button>
+        <button>Preferências</button>
+      </div>
+
+      <button className="logout-button">
+        Sair do sistema
+      </button>
+    </div>
+  )}
+</div>
           </div>
         </header>
 

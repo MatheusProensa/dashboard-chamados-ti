@@ -2471,4 +2471,21 @@ body::after {
 .theme-tooltip {
   display: none !important;
 }
+
+.notification-dropdown {
+  overflow: hidden;
+}
+
+.notification-item {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.notification-item p,
+.notification-item strong,
+.notification-header p {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
 }

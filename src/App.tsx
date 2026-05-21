@@ -117,6 +117,7 @@ function AnimatedNumber({ value }: { value: number }) {
 
 export default function App() {
   const [temaClaro, setTemaClaro] = useState(false);
+  const [sidebarFechada, setSidebarFechada] = useState(false);
 
 useEffect(() => {
   document.body.classList.toggle("light-theme", temaClaro);
@@ -200,11 +201,19 @@ const resolvidosAnimado = useAnimatedNumber(chamadosResolvidos, 1000);
 
   return (
     <div className="dashboard">
-      <aside className="sidebar">
-        <div className="sidebar-logo">
-  <img src={simbolo} alt="Painel TI" />
-  <h2>Painel TI</h2>
-</div>
+  <aside className={`sidebar ${sidebarFechada ? "closed" : ""}`}>
+
+    <button
+      className="sidebar-toggle"
+      onClick={() => setSidebarFechada(!sidebarFechada)}
+    >
+      ☰
+    </button>
+
+    <div className="sidebar-logo">
+      <img src={simbolo} alt="Painel TI" />
+      <h2>Painel TI</h2>
+    </div>
 
         <nav className="sidebar-nav">
           <a href="#" className="active">
@@ -255,7 +264,7 @@ const resolvidosAnimado = useAnimatedNumber(chamadosResolvidos, 1000);
   {temaClaro ? <FaMoon /> : <FaSun />}
 
   <span className="theme-tooltip">
-    ✨ Experimente o modo claro
+    ✨ Modo claro
   </span>
 </button>
 

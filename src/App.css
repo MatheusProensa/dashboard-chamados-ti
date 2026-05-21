@@ -2375,14 +2375,21 @@ body::after {
   animation: mobileDropdownFade 0.22s ease;
 }
 
-.notification-dropdown {
-  left: 0;
-  transform: translateX(-44%);
-}
-
+.notification-dropdown,
 .profile-dropdown {
-  left: 0;
-  transform: translateX(-72%);
+  position: fixed;
+
+  width: calc(100vw - 40px);
+  max-width: 360px;
+
+  top: 320px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 99999;
+
+  animation: mobileDropdownFade 0.18s ease;
 }
 
 @keyframes mobileDropdownFade {

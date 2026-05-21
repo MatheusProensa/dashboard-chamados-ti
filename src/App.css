@@ -2357,23 +2357,6 @@ body::after {
   position: relative;
 }
 
-.notification-dropdown,
-.profile-dropdown {
-  position: absolute;
-
-  width: calc(100vw - 40px);
-  max-width: 360px;
-
-  top: 72px;
-  left: 50%;
-  right: auto;
-
-  transform: translateX(-50%);
-
-  z-index: 99999;
-
-  animation: mobileDropdownFade 0.22s ease;
-}
 
 .notification-dropdown,
 .profile-dropdown {

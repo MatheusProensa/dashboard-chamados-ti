@@ -272,8 +272,8 @@ const resolvidosAnimado = useAnimatedNumber(chamadosResolvidos, 1000);
             <div className="notification-wrapper">
               <button
                 className={`notification ${
-                  notificacoesAbertas ? "active-notification" : ""
-                }`}
+  notificacoesAbertas ? "active-notification mobile-active" : ""
+}`}
                 onClick={() => setNotificacoesAbertas(!notificacoesAbertas)}
               >
                 <FaBell />
@@ -315,7 +315,7 @@ const resolvidosAnimado = useAnimatedNumber(chamadosResolvidos, 1000);
 
             <div className="profile-wrapper">
   <button
-    className="user-avatar"
+    className={`user-avatar ${perfilAberto ? "mobile-active" : ""}`}
     onClick={() => setPerfilAberto(!perfilAberto)}
   >
     M

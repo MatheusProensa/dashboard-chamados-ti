@@ -147,7 +147,7 @@ body::after {
 }
 
 .topbar p {
-  margin-top: 12px;
+  margin-top: 10px;
   color: #8fa99a;
   font-size: 17px;
 }
@@ -2416,6 +2416,31 @@ body::after {
 .user-avatar:hover,
 .new-ticket:hover {
   transform: none;
+}
+
+.notification:active,
+.theme-toggle:active,
+.user-avatar:active,
+.new-ticket:active {
+  transform: scale(0.96);
+}
+
+.notification:hover,
+.theme-toggle:hover,
+.user-avatar:hover,
+.new-ticket:hover {
+  transform: none;
+}
+
+.notification.mobile-active,
+.user-avatar.mobile-active {
+  transform: scale(1.04);
+
+  border-color: rgba(34, 197, 94, 0.42);
+
+  box-shadow:
+    0 14px 30px rgba(34, 197, 94, 0.24),
+    0 0 24px rgba(34, 197, 94, 0.16);
 }
 
 .notification:active,

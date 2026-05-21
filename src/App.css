@@ -2221,12 +2221,12 @@ body::after {
   }
 
   .topbar {
-  gap: 22px;
+  gap: 18px;
 
   align-items: center;
 
-  padding-top: 28px;
-  padding-bottom: 10px;
+  padding-top: 34px;
+  padding-bottom: 14px;
 }
 
   .topbar h1 {
@@ -2246,7 +2246,7 @@ body::after {
 
   max-width: 320px;
 
-  margin-top: 4px;
+  margin-top: 10px;
 
   white-space: nowrap;
 }
@@ -2448,4 +2448,20 @@ body::after {
 .user-avatar:active,
 .new-ticket:active {
   transform: scale(0.96);
+}
+
+@media (max-width: 600px) {
+  .topbar-actions {
+    row-gap: 18px;
+  }
+
+  .theme-toggle,
+  .notification,
+  .user-avatar {
+    margin-top: 6px;
+  }
+
+  .cards {
+    margin-top: 42px;
+  }
 }

@@ -2252,7 +2252,7 @@ body::after {
 
   margin-top: 10px;
 
-  white-space: nowrap;
+  white-space: normal;
 }
 
   .topbar-actions {

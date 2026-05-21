@@ -2472,20 +2472,21 @@ body::after {
   display: none !important;
 }
 
-.notification-dropdown {
-  overflow: hidden;
-}
-
 .notification-item {
   max-width: 100%;
   overflow: hidden;
+  text-align: left;
+}
+
+.notification-item div {
+  width: 100%;
+  text-align: left;
 }
 
 .notification-item p,
 .notification-item strong,
-.notification-header p {
-  max-width: 100%;
+.notification-item span {
+  text-align: left;
   white-space: normal;
   overflow-wrap: break-word;
-  word-break: normal;
 }

@@ -2221,8 +2221,12 @@ body::after {
   }
 
   .topbar {
-  gap: 14px;
+  gap: 22px;
+
   align-items: center;
+
+  padding-top: 28px;
+  padding-bottom: 10px;
 }
 
   .topbar h1 {
@@ -2230,6 +2234,8 @@ body::after {
   line-height: 1.08;
 
   text-align: center;
+
+  margin-bottom: -2px;
 }
 
   .topbar p {
@@ -2237,6 +2243,10 @@ body::after {
   line-height: 1.45;
 
   text-align: center;
+
+  max-width: 320px;
+
+  margin-top: -8px;
 }
 
   .topbar-actions {

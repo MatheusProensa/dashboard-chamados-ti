@@ -253,8 +253,12 @@ body::after {
 
 .user-avatar {
   font-weight: 800;
-  background: rgba(34, 197, 94, 0.14);
+
+  background: #0b1d15;
+
   color: #22c55e;
+
+  border: 1px solid rgba(34, 197, 94, 0.14);
 }
 
 .theme-toggle {
@@ -2457,9 +2461,9 @@ body::after {
 .theme-toggle,
 .notification,
 .user-avatar {
-  margin-top: 6px;
+  margin-top: 18px;
 }
 
 .cards {
-  margin-top: 52px;
+  margin-top: 64px;
 }

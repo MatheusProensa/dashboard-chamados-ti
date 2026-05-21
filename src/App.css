@@ -1885,3 +1885,61 @@ body.light-theme .notification:hover {
 
   transform: translateX(0);
 }
+
+/* TRANSIÇÃO SMOOTH DARK / LIGHT */
+
+body,
+.dashboard,
+.sidebar,
+.main-content,
+.card,
+.chart-card,
+.summary-card,
+.table-section,
+.search-box,
+.notification,
+.user-avatar,
+.theme-toggle,
+.new-ticket,
+.summary-list div,
+.status-button,
+.status-menu,
+.modal,
+.notification-dropdown,
+thead,
+td,
+th,
+input,
+textarea,
+select {
+  transition:
+    background 0.45s ease,
+    background-color 0.45s ease,
+    color 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow 0.45s ease,
+    filter 0.45s ease;
+}
+
+body::before,
+body::after {
+  transition:
+    opacity 0.55s ease,
+    background 0.55s ease,
+    filter 0.55s ease;
+}
+
+.card-icon,
+.sidebar-logo img,
+.sidebar-logo h2,
+.bar-fill,
+.bar-track,
+.bar-value,
+.bar-label {
+  transition:
+    color 0.45s ease,
+    background 0.45s ease,
+    box-shadow 0.45s ease,
+    filter 0.45s ease,
+    transform 0.3s ease;
+}

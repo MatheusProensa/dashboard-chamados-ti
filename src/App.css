@@ -2353,10 +2353,24 @@ body::after {
   }
 
   .notification-dropdown,
-  .profile-dropdown {
-    width: 92vw;
-    right: -10px;
-  }
+.profile-dropdown {
+  width: calc(100vw - 40px);
+
+  left: 50%;
+  right: auto;
+
+  transform: translateX(-50%);
+
+  top: 72px;
+}
+
+.profile-dropdown {
+  max-width: 340px;
+}
+
+.notification-dropdown {
+  max-width: 360px;
+}
 
   .modal {
     padding: 22px;

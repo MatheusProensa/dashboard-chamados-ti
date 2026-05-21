@@ -2085,11 +2085,10 @@ body::after {
 }
 
 /* ======================================
-   RESPONSIVIDADE PREMIUM
+   RESPONSIVIDADE MOBILE PREMIUM
 ====================================== */
 
 @media (max-width: 1200px) {
-
   .cards {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2114,42 +2113,85 @@ body::after {
 }
 
 @media (max-width: 900px) {
-
   .dashboard {
     flex-direction: column;
   }
 
   .sidebar {
     width: 100%;
-    height: auto;
+    min-height: auto;
+    padding: 22px 20px;
 
     border-right: none;
-    border-bottom: 1px solid rgba(34, 197, 94, 0.08);
+    border-bottom: 1px solid rgba(34, 197, 94, 0.12);
 
-    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar-toggle {
+    margin-bottom: 18px;
+  }
+
+  .sidebar-logo {
+    margin-bottom: 28px;
+  }
+
+  .sidebar-logo img {
+    width: 58px;
+    height: 58px;
+    transform: scale(1.7);
+    margin-bottom: 0;
+  }
+
+  .sidebar-logo h2 {
+    font-size: 20px;
+    margin-top: 8px;
+  }
+
+  .sidebar-nav {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .sidebar-nav a {
+    width: 100%;
+    min-width: 0;
+    height: 64px;
+
+    justify-content: center;
+    padding: 0 14px;
+    border-radius: 18px;
   }
 
   .sidebar.closed {
     width: 100%;
+    padding: 18px 20px;
   }
 
-  .sidebar-nav {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+  .sidebar.closed .sidebar-logo,
+  .sidebar.closed .sidebar-nav {
+    display: none;
   }
 
-  .sidebar-nav a {
-    flex: 1;
-    min-width: 130px;
+  .sidebar.closed .sidebar-toggle {
+    margin-bottom: 0;
   }
 
   .main-content {
-    padding: 30px 20px 140px;
+    padding: 34px 20px 140px;
   }
 
   .topbar h1 {
-    font-size: 38px;
+    font-size: 42px;
+    line-height: 1.1;
+  }
+
+  .topbar p {
+    font-size: 16px;
   }
 
   .table-section {
@@ -2162,54 +2204,125 @@ body::after {
 }
 
 @media (max-width: 600px) {
+  .main-content {
+    padding: 30px 20px 120px;
+  }
 
   .cards {
     grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .topbar {
+    gap: 26px;
   }
 
   .topbar h1 {
-    font-size: 30px;
+    font-size: 34px;
+    line-height: 1.08;
   }
 
   .topbar p {
     font-size: 15px;
+    line-height: 1.45;
   }
 
   .topbar-actions {
-    gap: 10px;
+    gap: 12px;
   }
 
   .search-box {
-    height: 48px;
+    width: 100%;
+    height: 54px;
   }
 
   .new-ticket {
     width: 100%;
+    height: 58px;
     justify-content: center;
+    font-size: 15px;
   }
 
   .notification,
   .theme-toggle,
   .user-avatar {
-    width: 48px;
-    height: 48px;
+    width: 54px;
+    height: 54px;
   }
 
-  .card,
+  .card {
+    min-height: 128px;
+    padding: 24px;
+    border-radius: 24px;
+  }
+
+  .card h3 {
+    font-size: 32px;
+  }
+
+  .card span {
+    font-size: 18px;
+  }
+
+  .card-icon {
+    font-size: 42px;
+  }
+
   .chart-card,
   .summary-card,
   .table-section {
-    border-radius: 20px;
-    padding: 22px;
+    border-radius: 24px;
+    padding: 26px;
+  }
+
+  .section-header {
+    flex-direction: row;
+    align-items: flex-start;
   }
 
   .section-header h2,
   .summary-card h2 {
-    font-size: 24px;
+    font-size: 30px;
+    line-height: 1.15;
+  }
+
+  .section-header p {
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
+  .bar-chart {
+    gap: 16px;
+    height: 250px;
+  }
+
+  .bar-track {
+    height: 160px;
+  }
+
+  .bar-value {
+    font-size: 16px;
+  }
+
+  .bar-label {
+    font-size: 16px;
+  }
+
+  .summary-list div {
+    padding: 22px;
+  }
+
+  .summary-list span {
+    font-size: 17px;
+  }
+
+  .summary-list strong {
+    font-size: 28px;
   }
 
   .table-header h2 {
-    font-size: 30px;
+    font-size: 34px;
+    line-height: 1.1;
   }
 
   .notification-dropdown,
@@ -2225,5 +2338,10 @@ body::after {
 
   .modal-header h2 {
     font-size: 24px;
+  }
+
+  body::after {
+    opacity: 0.5;
+    filter: blur(90px);
   }
 }

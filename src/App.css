@@ -2473,14 +2473,14 @@ body::after {
 }
 
 .notification-item {
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 10px 1fr;
+  column-gap: 14px;
 
   align-items: flex-start;
-  justify-content: flex-start;
-
-  gap: 14px;
 
   text-align: left;
+  overflow: hidden;
 }
 
 .notification-item strong {
@@ -2499,6 +2499,9 @@ body::after {
   line-height: 1.5;
 
   text-align: left;
+  max-width: 100%;
+overflow-wrap: break-word;
+word-break: normal;
 }
 
 .notification-item span {

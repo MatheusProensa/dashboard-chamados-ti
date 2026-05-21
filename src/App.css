@@ -2372,7 +2372,7 @@ body::after {
 
   z-index: 99999;
 
-  animation: mobileDropdownIn 0.22s ease;
+  animation: mobileDropdownFade 0.22s ease;
 }
 
 .notification-dropdown {
@@ -2385,28 +2385,12 @@ body::after {
   transform: translateX(-72%);
 }
 
-@keyframes mobileDropdownIn {
+@keyframes mobileDropdownFade {
   from {
     opacity: 0;
-    transform: translateX(-50%) translateY(-8px);
   }
 
   to {
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-}
-  .modal {
-    padding: 22px;
-    border-radius: 22px;
-  }
-
-  .modal-header h2 {
-    font-size: 24px;
-  }
-
-  body::after {
-    opacity: 0.5;
-    filter: blur(90px);
   }
 }

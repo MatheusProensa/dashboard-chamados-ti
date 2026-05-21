@@ -81,6 +81,34 @@ const notificacoes = [
   },
 ];
 
+function useAnimatedNumber(value: number, duration = 800) {
+  const [animatedValue, setAnimatedValue] = useState(0);
+
+  useEffect(() => {
+    let startTime: number | null = null;
+    let animationFrame: number;
+
+    function animate(currentTime: number) {
+      if (!startTime) startTime = currentTime;
+
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+      setAnimatedValue(Math.round(value * easedProgress));
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    }
+
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationFrame);
+  }, [value, duration]);
+
+  return animatedValue;
+}
+
 export default function App() {
   const [temaClaro, setTemaClaro] = useState(false);
 
@@ -97,6 +125,21 @@ useEffect(() => {
 
   const [notificacoesAbertas, setNotificacoesAbertas] = useState(false);
   const [notificacoesLidas, setNotificacoesLidas] = useState(false);
+  const totalChamados = chamados.length;
+const chamadosEmAndamento = chamados.filter(
+  (item) => item.status === "Em andamento"
+).length;
+const chamadosUrgentes = chamados.filter(
+  (item) => item.prioridade === "Alta"
+).length;
+const chamadosResolvidos = chamados.filter(
+  (item) => item.status === "Resolvido"
+).length;
+
+const totalAnimado = useAnimatedNumber(totalChamados);
+const andamentoAnimado = useAnimatedNumber(chamadosEmAndamento);
+const urgentesAnimado = useAnimatedNumber(chamadosUrgentes);
+const resolvidosAnimado = useAnimatedNumber(chamadosResolvidos);
 
   function abrirModal() {
     setModalAberto(true);
@@ -263,7 +306,7 @@ useEffect(() => {
             <FaDesktop className="card-icon" />
             <div>
               <span>Total</span>
-              <h3>{chamados.length}</h3>
+              <h3>{totalAnimado}</h3>
             </div>
           </div>
 
@@ -271,9 +314,7 @@ useEffect(() => {
             <FaClock className="card-icon" />
             <div>
               <span>Em andamento</span>
-              <h3>
-                {chamados.filter((item) => item.status === "Em andamento").length}
-              </h3>
+              <h3>{andamentoAnimado}</h3>
             </div>
           </div>
 
@@ -281,7 +322,7 @@ useEffect(() => {
             <FaExclamationTriangle className="card-icon" />
             <div>
               <span>Urgentes</span>
-              <h3>{chamados.filter((item) => item.prioridade === "Alta").length}</h3>
+              <h3>{urgentesAnimado}</h3>
             </div>
           </div>
 
@@ -289,7 +330,7 @@ useEffect(() => {
             <FaCheckCircle className="card-icon" />
             <div>
               <span>Resolvidos</span>
-              <h3>{chamados.filter((item) => item.status === "Resolvido").length}</h3>
+              <h3>{resolvidosAnimado}</h3>
             </div>
           </div>
         </section>

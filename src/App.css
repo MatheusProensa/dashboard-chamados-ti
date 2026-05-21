@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-
 body {
   background: #020805;
   color: white;
@@ -1015,6 +1014,7 @@ body.light-theme {
 body.light-theme #root {
   background: transparent;
 }
+
 body.light-theme::before {
   opacity: 0.28;
   background-image:
@@ -1232,12 +1232,6 @@ body.light-theme .bar-item:hover .bar-value,
 body.light-theme .bar-item:hover .bar-label {
   color: #0f172a;
   text-shadow: none;
-}
-
-/* LIGHT MODE - CONTRASTE PREMIUM FINAL */
-
-body.light-theme {
-  background: #e6f1eb;
 }
 
 /* CARDS E ÁREAS */

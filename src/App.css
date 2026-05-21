@@ -2354,14 +2354,37 @@ body::after {
 
   .notification-dropdown,
 .profile-dropdown {
-  position: fixed;
+  animation: mobileDropdownIn 0.22s ease;
+}
+
+@keyframes mobileDropdownIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+  .notification-wrapper,
+.profile-wrapper {
+  position: static;
+}
+
+.notification-dropdown,
+.profile-dropdown {
+  position: absolute;
 
   width: calc(100vw - 40px);
   max-width: 360px;
 
-  top: 120px;
   left: 50%;
   right: auto;
+
+  top: 100%;
 
   transform: translateX(-50%);
 

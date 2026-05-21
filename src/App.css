@@ -2394,3 +2394,17 @@ body::after {
     opacity: 1;
   }
 }
+
+.notification:hover,
+.theme-toggle:hover,
+.user-avatar:hover,
+.new-ticket:hover {
+  transform: none;
+}
+
+.notification:active,
+.theme-toggle:active,
+.user-avatar:active,
+.new-ticket:active {
+  transform: scale(0.96);
+}

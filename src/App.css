@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 body {
   background: #020805;
   color: white;
@@ -1011,6 +1012,9 @@ body.light-theme {
   color: #0b1720;
 }
 
+body.light-theme #root {
+  background: transparent;
+}
 body.light-theme::before {
   opacity: 0.28;
   background-image:

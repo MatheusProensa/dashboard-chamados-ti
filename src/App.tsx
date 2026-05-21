@@ -216,26 +216,26 @@ const resolvidosAnimado = useAnimatedNumber(chamadosResolvidos, 1000);
     </div>
 
         <nav className="sidebar-nav">
-          <a href="#" className="active">
-            <FaChartBar />
-            Painel
-          </a>
+  <a href="#" className="active">
+    <FaChartBar />
+    <span>Painel</span>
+  </a>
 
-          <a href="#">
-            <FaClipboardList />
-            Chamados
-          </a>
+  <a href="#">
+    <FaClipboardList />
+    <span>Chamados</span>
+  </a>
 
-          <a href="#">
-            <FaUsers />
-            Usuários
-          </a>
+  <a href="#">
+    <FaUsers />
+    <span>Usuários</span>
+  </a>
 
-          <a href="#">
-            <FaFileAlt />
-            Relatórios
-          </a>
-        </nav>
+  <a href="#">
+    <FaFileAlt />
+    <span>Relatórios</span>
+  </a>
+</nav>
       </aside>
 
       <main className="main-content">

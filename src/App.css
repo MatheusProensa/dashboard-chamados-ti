@@ -1840,3 +1840,48 @@ body.light-theme .notification:hover {
 .sidebar.closed .sidebar-logo img {
   transform: scale(1.5);
 }
+
+.sidebar.closed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar.closed .sidebar-logo {
+  align-items: center;
+}
+
+.sidebar.closed .sidebar-nav {
+  align-items: center;
+  width: 100%;
+}
+
+.sidebar.closed .sidebar-nav a {
+  width: 64px;
+  height: 64px;
+
+  padding: 0;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0;
+
+  border-radius: 18px;
+}
+
+.sidebar.closed .sidebar-nav a svg {
+  width: 18px;
+  height: 18px;
+
+  font-size: 18px;
+
+  margin: 0;
+  padding: 0;
+
+  flex-shrink: 0;
+
+  transform: translateX(0);
+}

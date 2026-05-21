@@ -133,7 +133,21 @@ useEffect(() => {
   const [notificacoesAbertas, setNotificacoesAbertas] = useState(false);
   const [notificacoesLidas, setNotificacoesLidas] = useState(false);
   const [perfilAberto, setPerfilAberto] = useState(false);
-  const totalChamados = chamados.length;
+
+useEffect(() => {
+  function fecharDropdowns() {
+    setNotificacoesAbertas(false);
+    setPerfilAberto(false);
+  }
+
+  document.addEventListener("click", fecharDropdowns);
+
+  return () => {
+    document.removeEventListener("click", fecharDropdowns);
+  };
+}, []);
+
+const totalChamados = chamados.length;
 const chamadosEmAndamento = chamados.filter(
   (item) => item.status === "Em andamento"
 ).length;
@@ -274,7 +288,12 @@ const resolvidosAnimado = useAnimatedNumber(chamadosResolvidos, 1000);
                 className={`notification ${
   notificacoesAbertas ? "active-notification mobile-active" : ""
 }`}
-                onClick={() => setNotificacoesAbertas(!notificacoesAbertas)}
+                onClick={(e) => {
+  e.stopPropagation();
+
+  setNotificacoesAbertas(!notificacoesAbertas);
+  setPerfilAberto(false);
+}}
               >
                 <FaBell />
                 {!notificacoesLidas && <span className="notification-dot"></span>}
@@ -316,7 +335,12 @@ const resolvidosAnimado = useAnimatedNumber(chamadosResolvidos, 1000);
             <div className="profile-wrapper">
   <button
     className={`user-avatar ${perfilAberto ? "mobile-active" : ""}`}
-    onClick={() => setPerfilAberto(!perfilAberto)}
+    onClick={(e) => {
+  e.stopPropagation();
+
+  setPerfilAberto(!perfilAberto);
+  setNotificacoesAbertas(false);
+}}
   >
     M
   </button>

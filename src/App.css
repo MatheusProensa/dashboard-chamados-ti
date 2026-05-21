@@ -2450,17 +2450,16 @@ body::after {
   transform: scale(0.96);
 }
 
-@media (max-width: 600px) {
-  .topbar-actions {
-    row-gap: 18px;
-  }
+.topbar-actions {
+  row-gap: 18px;
+}
 
-  .theme-toggle,
-  .notification,
-  .user-avatar {
-    margin-top: 6px;
-  }
+.theme-toggle,
+.notification,
+.user-avatar {
+  margin-top: 6px;
+}
 
-  .cards {
+.cards {
   margin-top: 52px;
 }

@@ -71,7 +71,7 @@ body::after {
   object-fit: contain;
   transform: scale(2.15);
   margin-bottom: -4px;
-  filter: drop-shadow(0 0 14px rgba(34, 197, 94, 0.45));
+  filter: drop-shadow(0 0 14px rgba(34, 197, 94, 0.28));
   transition: 0.3s ease;
 }
 
@@ -196,7 +196,7 @@ body::after {
 }
 
 .search-box:focus-within {
-  border-color: rgba(34, 197, 94, 0.45);
+  border-color: rgba(34, 197, 94, 0.28);
 
   box-shadow:
     0 0 0 4px rgba(34, 197, 94, 0.08),
@@ -324,7 +324,7 @@ body::after {
 
 .card:hover .card-icon {
   transform: scale(1.08);
-  filter: drop-shadow(0 0 12px rgba(34, 197, 94, 0.45));
+  filter: drop-shadow(0 0 12px rgba(34, 197, 94, 0.28));
 }
 
 .card span {
@@ -459,7 +459,7 @@ body::after {
 .bar-item:hover .bar-fill {
   filter: brightness(1.22);
   box-shadow:
-    0 0 42px rgba(34, 197, 94, 0.45),
+    0 0 42px rgba(34, 197, 94, 0.28),
     0 0 18px rgba(134, 239, 172, 0.28),
     inset 0 2px 14px rgba(255, 255, 255, 0.14);
 }
@@ -1452,8 +1452,8 @@ body.light-theme .sidebar {
   white-space: nowrap;
 
   box-shadow:
-    0 18px 45px rgba(34, 197, 94, 0.35),
-    0 0 18px rgba(34, 197, 94, 0.35);
+    0 18px 45px rgba(34, 197, 94, 0.22),
+    0 0 18px rgba(34, 197, 94, 0.22);
 
   animation: tooltipPulse 3.2s ease forwards;
 
@@ -1652,7 +1652,7 @@ body.light-theme .notification,
 body.light-theme .user-avatar {
   background: linear-gradient(180deg, #f8fffb, #e5f7ec);
   color: #0f172a;
-  border: 1px solid rgba(34, 197, 94, 0.26);
+  border: 1px solid rgba(34, 197, 94, 0.18);
 
   box-shadow:
     0 10px 24px rgba(15, 23, 42, 0.06),
@@ -1676,9 +1676,9 @@ body.light-theme .user-avatar {
 /* NOTIFICAÇÃO LIGHT DESTACADA */
 
 body.light-theme .notification {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
+  background: linear-gradient(135deg, #4ade80, #22c55e);
   color: white;
-  border: 1px solid rgba(34, 197, 94, 0.45);
+  border: 1px solid rgba(34, 197, 94, 0.28);
 
   box-shadow:
     0 10px 22px rgba(34, 197, 94, 0.14);
@@ -1690,7 +1690,7 @@ body.light-theme .notification:hover {
   background: linear-gradient(135deg, #16a34a, #15803d);
 
   box-shadow:
-    0 14px 30px rgba(34, 197, 94, 0.26),
+    0 14px 30px rgba(34, 197, 94, 0.18),
     0 0 22px rgba(34, 197, 94, 0.14);
 }
 
@@ -1701,7 +1701,7 @@ body.light-theme .theme-toggle:hover {
 
   background: #f8fffb;
 
-  border-color: rgba(34, 197, 94, 0.35);
+  border-color: rgba(34, 197, 94, 0.22);
 
   box-shadow:
     0 10px 24px rgba(34, 197, 94, 0.12),
@@ -1750,9 +1750,9 @@ body.light-theme .user-avatar:hover {
 /* SINO CONTINUA VERDE DESTACADO */
 
 body.light-theme .notification {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
+  background: linear-gradient(135deg, #4ade80, #22c55e);
   color: white;
-  border: 1px solid rgba(34, 197, 94, 0.45);
+  border: 1px solid rgba(34, 197, 94, 0.28);
 
   box-shadow:
     0 12px 28px rgba(34, 197, 94, 0.22),
